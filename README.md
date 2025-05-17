@@ -6,74 +6,67 @@ To implement Erosion and Dilation using Python and OpenCV.
 2. OpenCV
 ## Algorithm:
 ### Step1:
-<br>
+Create a blank image.
 
 
 ### Step2:
-<br>
-
+Create a structuring element (5x5 rectangular)
 ### Step3:
-<br>
+Erode the image.
 
 ### Step4:
-<br>
+Dilate the image.
 
 ### Step5:
-<br>
+End the program.
 
  
 ## Program:
 
-``` Python
-# Import the necessary packages
+~~~
+# Developed By: DHANUSYA K
+# Register No: 212223230043
 
 
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+# Load the image
+img1=np.zeros((100,700),dtype='uint8')
+font=cv2.FONT_HERSHEY_COMPLEX_SMALL
 
-# Create the Text using cv2.putText
-
+# Create the text using cv2.putText
+cv2.putText(img1,'DHANUSYA ' ,(5,70),font,4,(255),2,cv2.LINE_AA)
 
 
 # Create the structuring element
-
-
-
-# Erode the image
-
-
-
+kernel1=cv2.getStructuringElement(cv2.MORPH_CROSS,(5,5))
 
 # Dilate the image
+img_dilate=cv2.dilate(img1,kernel1)
+img_erode=cv2.erode(img1,kernel1)
+
+# Display the results
+plt.figure(figsize=(12, 5))
+plt.subplot(1,3,1)
+plt.imshow(img1,cmap='gray')
+plt.subplot(1,3,2)
+plt.imshow(img_dilate,cmap='gray')
+plt.subplot(1,3,3)
+plt.imshow(img_erode,cmap='gray')
+~~~
 
 
 
 
-
-```
 ## Output:
-
-### Display the input Image
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+### Display the input Image:
+![Screenshot 2025-05-17 112629](https://github.com/user-attachments/assets/79adebf5-dc8c-4b00-a007-f369df69ada3)
 ### Display the Eroded Image
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+![Screenshot 2025-05-17 112635](https://github.com/user-attachments/assets/01001e3f-5c8d-47f3-8151-aa0c23fed0b8)
 ### Display the Dilated Image
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+![Screenshot 2025-05-17 112640](https://github.com/user-attachments/assets/fd22dfc4-e5e2-41ab-a1d2-841815bf1869)
+
 
 ## Result
 Thus the generated text image is eroded and dilated using python and OpenCV.
